@@ -17,32 +17,32 @@ public class RegexController
 		JOptionPane.showMessageDialog(baseFrame, "Please enter valid info into each field.");
 	}
 	
-	public boolean isValidFirstName(String input)
+	public String isValidFirstName(String input)
 	{
-		boolean valid = false;
+		String response = "";
 		
-		return valid;
+		return response;
 	}
 	
-	public boolean isValidLastName(String input)
+	public String isValidLastName(String input)
 	{
-		boolean valid = false;
+		String response = "";
 		
-		return valid;
+		return response;
 	}
 	
-	public boolean isValidPhoneNumber(String input)
+	public String isValidPhoneNumber(String input)
 	{
-		boolean valid = false;
+		String response = "";
 		
-		return valid;
+		return response;
 	}
 	
-	public boolean isValidEmail(String input)
+	public String isValidEmail(String input)
 	{
-		boolean valid = false;
+		String response = "";
 		
-		return valid;
+		return response;
 	}
 
 }
