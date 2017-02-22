@@ -22,7 +22,7 @@ public class RegexFrame extends JFrame
 	{
 		this.setContentPane(appPanel);
 		this.setTitle("Regex");
-		this.setSize(new Dimension(500, 500));
+		this.setSize(new Dimension(750, 500));
 		this.setVisible(true);
 		this.setResizable(false);
 	}

@@ -19,28 +19,28 @@ public class RegexController
 	
 	public String isValidFirstName(String input)
 	{
-		String response = "";
+		String response = "First Name is invalid";
 		
 		return response;
 	}
 	
 	public String isValidLastName(String input)
 	{
-		String response = "";
+		String response = "Last Name is invalid";
 		
 		return response;
 	}
 	
 	public String isValidPhoneNumber(String input)
 	{
-		String response = "";
+		String response = "Phone Number is invalid";
 		
 		return response;
 	}
 	
 	public String isValidEmail(String input)
 	{
-		String response = "";
+		String response = "Email is invalid";
 		
 		return response;
 	}
