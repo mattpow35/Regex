@@ -34,7 +34,8 @@ public class RegexController
 		
 		return response;
 	}
-	
+	// must be between 2 and 40 characters
+	// can include - , . '
 	public String isValidLastName(String input)
 	{
 		String response = "";
@@ -53,7 +54,16 @@ public class RegexController
 	
 	public String isValidPhoneNumber(String input)
 	{
-		String response = "Phone Number is invalid";
+		String response = "";
+		
+		if(input.length() == 10 && input.matches(".*[0-9]"))
+		{
+			response = "valid phone number";
+		}
+		else
+		{
+			response = "Phone number is invalid";
+		}
 		
 		return response;
 	}
