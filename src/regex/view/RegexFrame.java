@@ -26,5 +26,10 @@ public class RegexFrame extends JFrame
 		this.setVisible(true);
 		this.setResizable(false);
 	}
+	
+	public RegexController getBaseController()
+	{
+		return baseController;
+	}
 
 }

@@ -21,10 +21,8 @@ public class RegexPanel extends JPanel
 	private JLabel lastNameLabel;
 	private JLabel phoneNumberLabel;
 	private JLabel emailLabel;
-	private JLabel validFirst;
-	private JLabel validLast;
-	private JLabel validNumber;
-	private JLabel validEmail;
+	
+	private JLabel validationMessage;
 	
 	private JButton submitButton;
 	
@@ -43,13 +41,12 @@ public class RegexPanel extends JPanel
 		this.lastNameLabel = new JLabel("Last Name:");
 		this.phoneNumberLabel = new JLabel("Phone Number:");
 		this.emailLabel = new JLabel("Email:");
-		this.validFirst = new JLabel("");
-		this.validLast = new JLabel("");
-		this.validNumber = new JLabel("");
-		this.validEmail = new JLabel("");
+		
+		this.validationMessage = new JLabel("");
 		
 		
 		this.submitButton = new JButton("SUBMIT");
+		
 		
 		
 		setupPanel();
@@ -74,10 +71,7 @@ public class RegexPanel extends JPanel
 		this.add(phoneNumberLabel);
 		this.add(emailLabel);
 		this.add(submitButton);
-		this.add(validFirst);
-		this.add(validLast);
-		this.add(validNumber);
-		this.add(validEmail);
+		this.add(validationMessage);
 	}
 	
 	private void setupLayout()
@@ -99,18 +93,9 @@ public class RegexPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, lastNameLabel, 10, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, firstNameLabel, 0, SpringLayout.WEST, lastNameLabel);
 		baseLayout.putConstraint(SpringLayout.WEST, emailLabel, 10, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, validFirst, 5, SpringLayout.NORTH, firstName);
-		baseLayout.putConstraint(SpringLayout.WEST, validFirst, 6, SpringLayout.EAST, firstName);
-		baseLayout.putConstraint(SpringLayout.NORTH, validLast, 5, SpringLayout.NORTH, lastName);
-		baseLayout.putConstraint(SpringLayout.WEST, validLast, 6, SpringLayout.EAST, lastName);
-		baseLayout.putConstraint(SpringLayout.EAST, validLast, -222, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, validNumber, 5, SpringLayout.NORTH, phoneNumber);
-		baseLayout.putConstraint(SpringLayout.WEST, validNumber, 6, SpringLayout.EAST, phoneNumber);
-		baseLayout.putConstraint(SpringLayout.NORTH, validEmail, 5, SpringLayout.NORTH, email);
-		baseLayout.putConstraint(SpringLayout.WEST, validEmail, 6, SpringLayout.EAST, email);
-		baseLayout.putConstraint(SpringLayout.NORTH, validEmail, 5, SpringLayout.NORTH, email);
-		baseLayout.putConstraint(SpringLayout.WEST, validEmail, 6, SpringLayout.EAST, email);
 		baseLayout.putConstraint(SpringLayout.WEST, submitButton, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, validationMessage, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, validationMessage, 45, SpringLayout.SOUTH, submitButton);
 	}
 	
 	private void setupListeners()
@@ -119,10 +104,8 @@ public class RegexPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				validFirst.setText(baseController.isValidFirstName(firstName.getText()));
-				validLast.setText(baseController.isValidLastName(lastName.getText()));
-				validNumber.setText(baseController.isValidPhoneNumber(phoneNumber.getText()));
-				validEmail.setText(baseController.isValidEmail(email.getText()));
+				validationMessage.setText(baseController.validationMessage(firstName.getText(), lastName.getText(), 
+						phoneNumber.getText(), email.getText()));
 			}
 			
 		});

@@ -19,58 +19,94 @@ public class RegexController
 	
 	//Must be 2-30 characters
 	//Cannot contain symbols.
-	public String isValidFirstName(String input)
+	public boolean validateFirstName(String input)
 	{
-		String response = "";
+		boolean valid = false;
 		
 		if (input.length() >= 2 && input.length() <= 30 && input.matches(".*[A-Za-z]"))
 		{
-			response = "valid name";
-		}
-		else
-		{
-			response = "First Name is invalid";
+			valid = true;
 		}
 		
-		return response;
+		
+		return valid;
 	}
 	// must be between 2 and 40 characters
 	// can include - , . '
-	public String isValidLastName(String input)
+	public boolean validateLastName(String input)
 	{
-		String response = "";
+		boolean valid = false;
 		
 		if(input.length() >= 2 && input.length() <= 40 && input.matches(".*[A-Za-z].*[-,.'\\w\\s]"))
 		{
-			response = "valid last name";
-		}
-		else
-		{
-			response = "Last name is invalid";
+			valid = true;
 		}
 		
-		return response;
+		return valid;
 	}
 	
-	public String isValidPhoneNumber(String input)
+	public boolean validatePhone(String input)
 	{
-		String response = "";
+		boolean valid = false;
 		
 		if(input.length() == 10 && input.matches(".*[0-9]"))
 		{
-			response = "valid phone number";
+			valid = true;
+		}
+		
+		
+		return valid;
+	}
+	
+	public boolean validateEmail(String input)
+	{
+		boolean valid = false;
+		if (input.matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"))
+		{
+			valid = true;
+		}
+		
+		return valid;
+	}
+	
+	public String validationMessage(String firstName, String lastName, String phone, String email)
+	{
+		String response = "Checking validation...";
+		if (validateFirstName(firstName) == false)
+		{
+			response += "\n First Name is not valid.";
 		}
 		else
 		{
-			response = "Phone number is invalid";
+			response += "\n First name is valid.";
 		}
 		
-		return response;
-	}
-	
-	public String isValidEmail(String input)
-	{
-		String response = "Email is invalid";
+		if (validateLastName(lastName) == false)
+		{
+			response += "\n Last Name is not valid.";
+		}
+		else
+		{
+			response += "\n Last name is valid.";
+		}
+		
+		if (validatePhone(phone) == false)
+		{
+			response += "\n Phone number is not valid.";
+		}
+		else
+		{
+			response += "\n Phone number is valid.";
+		}
+		
+		if (validateEmail(email) == false)
+		{
+			response += "\n Email is not valid.";
+		}
+		else
+		{
+			response += "\n Email is valid.";
+		}
 		
 		return response;
 	}
